@@ -12,15 +12,16 @@ import { ITodo } from 'src/app/models/todo.interface';
 })
 export class TodoContainerComponent implements OnInit {
 
-  constructor(private _todoService: TodoService, public dialog: MatDialog) {}
+  constructor(private _todoService: TodoService, public dialog: MatDialog) { }
 
   private subscription: Subscription = new Subscription();
 
   public todo: ITodo;
   public todos: ITodo[];
-  
+
   public openDialog(): void {
     const dialogRef = this.dialog.open(NewTodoComponent, {
+      width: '270px',
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -35,7 +36,7 @@ export class TodoContainerComponent implements OnInit {
       })
     );
     this.subscription.add(
-      this._todoService.getSelectedTodo().subscribe(data=>{
+      this._todoService.getSelectedTodo().subscribe(data => {
         this.todo = data;
       })
     )
