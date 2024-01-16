@@ -1,4 +1,4 @@
-<mat-card class="example-card">
+<mat-card class="example-card" *ngIf="todo && !todo.isArchived">
     <mat-card-header>
       <div mat-card-avatar class="example-header-image"></div>
       <mat-card-title>{{todo.title}}</mat-card-title>
@@ -13,7 +13,7 @@
       </p>
     </mat-card-content> -->
     <mat-card-actions>
-      <button mat-button>Complited</button>
-      <button mat-button>Archived</button>
+      <button mat-raised-button color="primary" (click)="onCompletedClick(todo)">Complited</button>
+      <button mat-raised-button color="warn" (click)="onArchivedClick(todo)">Archived</button>
     </mat-card-actions>
   </mat-card>

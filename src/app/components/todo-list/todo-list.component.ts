@@ -26,9 +26,13 @@ export class TodoListComponent implements OnInit, OnDestroy {
 
   public onTodoClick(todo: ITodo, index:number): void {
       this._todoService.setSelectedTodo(todo);
+      this.todos.forEach(todo => {
+        if(todo.selected){
+          todo.selected = false;
+        }
+      })
       this.todos[index].selected = true;
   }
-
 
   ngOnDestroy() {
     this.subscription.unsubscribe();

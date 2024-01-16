@@ -24,6 +24,16 @@ export class TodoComponent implements OnInit, OnDestroy {
     )
   }
 
+  public onCompletedClick(todo: ITodo): void {
+    todo.isCompleted=true;
+  }
+
+  public onArchivedClick(todo: ITodo): void {
+    todo.isArchived=true;
+    this._todoService.setSelectedTodo(todo);
+  }
+
+
   ngOnDestroy(){
     this.subscriptions.unsubscribe();
   }

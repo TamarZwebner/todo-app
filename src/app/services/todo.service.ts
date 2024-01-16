@@ -9,42 +9,46 @@ export class TodoService {
 
   private mock: ITodo[] = [
     {
+      id: 1,
       title: "Cacatua tenuirostris",
       description: "Cockatoo, long-billed",
-      isCompleted: true,
+      isCompleted: false,
       isArchived: false,
       endDate: "12/3/2023",
-      selected:true
+      selected: true
     },
     {
+      id: 2,
       title: "Phalacrocorax niger",
       description: "Little cormorant",
-      isCompleted: true,
-      isArchived: true,
+      isCompleted: false,
+      isArchived: false,
       endDate: "10/9/2023",
-      selected:false
+      selected: false
     },
     {
+      id: 3,
       title: "Funambulus pennati",
       description: "Squirrel, palm",
-      isCompleted: true,
-      isArchived: true,
+      isCompleted: false,
+      isArchived: false,
       endDate: "12/18/2023",
-      selected:false
+      selected: false
     },
     {
+      id: 4,
       title: "Hymenolaimus malacorhynchus",
       description: "Duck, mountain",
-      isCompleted: true,
+      isCompleted: false,
       isArchived: false,
       endDate: "12/22/2023",
-      selected:false
+      selected: false
     },
   ];
 
-  private _todoSubject:BehaviorSubject<Array<ITodo>> = new BehaviorSubject(this.mock);
+  private _todoSubject: BehaviorSubject<Array<ITodo>> = new BehaviorSubject(this.mock);
 
-  private _singleTodoSubject:BehaviorSubject<ITodo> = new BehaviorSubject(this.mock[0]);
+  private _singleTodoSubject: BehaviorSubject<ITodo> = new BehaviorSubject(this.mock[0]);
 
   constructor() { }
 
@@ -52,11 +56,11 @@ export class TodoService {
     return this._todoSubject.asObservable();
   }
 
-  public getSelectedTodo():Observable<ITodo> {
+  public getSelectedTodo(): Observable<ITodo> {
     return this._singleTodoSubject.asObservable();
   }
 
-  public setSelectedTodo(todo:ITodo) {
+  public setSelectedTodo(todo: ITodo) {
     return this._singleTodoSubject.next(todo);
   }
 
