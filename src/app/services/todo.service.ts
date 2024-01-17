@@ -43,4 +43,12 @@ export class TodoService {
     localStorage.setItem('todos', JSON.stringify(existingTodo));
   }
 
+  public onActionTodo(todoId: string,action:string): void {
+    const existingTodo: Array<ITodo> = this._todoSubject.value;
+    const todoIndex = existingTodo.findIndex(index => index.id === todoId);
+    existingTodo[todoIndex][action] = true;
+    this._todoSubject.next(existingTodo);
+    localStorage.setItem('todos', JSON.stringify(existingTodo));
+  }
+
 }

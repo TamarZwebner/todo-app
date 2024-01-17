@@ -15,25 +15,27 @@ export class NewTodoComponent implements OnInit {
 
   @ViewChild('f') form: NgForm;
 
-  constructor( private _todoService: TodoService, public dialog :MatDialog) { }
+  minDate: Date = new Date();
+
+  constructor(private _todoService: TodoService, public dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
 
   public onNewTodoSubmit(): void {
-    if(this.form.valid) {
-    const newTodo: ITodo = {
-      id: uuidv4(),
-      title: this.form.form.value.title,
-      description: this.form.form.value.description,
-      isCompleted: false,
-      isArchived:false,
-      endDate:this.form.form.value.endDate,
-      selected: false
+    if (this.form.valid) {
+      const newTodo: ITodo = {
+        id: uuidv4(),
+        title: this.form.form.value.title,
+        description: this.form.form.value.description,
+        isCompleted: false,
+        isArchived: false,
+        endDate: this.form.form.value.endDate,
+        selected: false
+      }
+      this._todoService.addNewTodo(newTodo);
+      this.dialog.closeAll();
     }
-    this._todoService.addNewTodo(newTodo);
-    this.dialog.closeAll();
   }
-}
 
 }

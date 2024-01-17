@@ -1,20 +1,19 @@
 .todo-container {
     padding: 10px;
-    height: calc(100vh - 64px);
+    height: calc(100vh - 84px);
     display: flex;
     gap:15px;
+}
+.list-container {
+    width: 25%;
+}
 
-    .list-container {
-        width: 25%;
-    }
+.title-container {
+    width: 75%;
+}
 
-    .title-container {
-        width: 75%;
-    }
-
-    .add-new-todo-btn {
-        position: fixed;
-        bottom: 30px;
-        right: 30px;
-    }
+.add-new-todo-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
 }

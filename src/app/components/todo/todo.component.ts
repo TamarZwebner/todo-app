@@ -27,12 +27,11 @@ export class TodoComponent implements OnInit {
   }
 
   public onCompletedClick(todo: ITodo): void {
-    todo.isCompleted=true;
+    this._todoService.onActionTodo(todo.id,"isCompleted");
   }
 
   public onArchivedClick(todo: ITodo): void {
-    todo.isArchived=true;
-    this._todoService.setSelectedTodo(todo);
+    this._todoService.onActionTodo(todo.id,"isArchived");
   }
 
 

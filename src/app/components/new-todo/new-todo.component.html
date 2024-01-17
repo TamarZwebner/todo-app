@@ -14,7 +14,7 @@
 
     <mat-form-field>
         <mat-label>Custom calendar header</mat-label>
-        <input required="true" ngModel name="endDate" matInput [matDatepicker]="picker">
+        <input required="true" [min]="minDate" ngModel name="endDate" matInput [matDatepicker]="picker">
         <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
